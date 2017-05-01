@@ -24,3 +24,26 @@ const AdminRoutes: Routes = [
     },
 
 ];
+
+
+@NgModule({
+    imports: [
+        CommonModule,
+        FormsModule,
+        RouterModule.forChild(AdminRoutes)
+    ],
+    exports: [
+        RouterModule
+    ],
+    declarations: [
+        AdminComponent,
+        AdminMenuComponent,
+        LoginComponent,
+        SignUpComponent
+    ],
+    providers: [
+        UserService
+    ]
+    
+})
+export class AdminModule {}
