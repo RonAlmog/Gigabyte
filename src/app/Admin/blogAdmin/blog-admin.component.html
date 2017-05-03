@@ -4,8 +4,9 @@
     </div>
     <div class="top-bar-left">
         <ul class="menu">
-            <li class="admin-menu"><a [routerLink]="['/admin/blog-admin']">Manage Blog</a></li>
-            
+            <li class="admin-menu"><a (click)="chooseMode('add')">Add Post</a></li>
+            <li *ngIf="menuChoice" class="admin-menu"><a (click)="chooseMode('')">Manage Blogs</a></li>
+            <li class="admin-menu"><a [routerLink]="['/admin']">Back to Admin</a></li>
         </ul>
         
     </div>
@@ -18,11 +19,7 @@
     </div>
 </div>
 
-<div class="row">
-    <img src="../adminShared/images/logo_800.png" alt="">
-</div>
-
-<div class="row align-center">
-    <h2>Welcome to the admin area for Gigabyte gaming company.</h2>
-    <h3>This area is for authorized users only!</h3>
+<div [ngSwitch]="menuChoice">
+    <div *ngSwitchCase="'add'"><h1>Add Menu</h1></div>
+    <div *ngSwitchDefault><h1>Default</h1></div>
 </div>
