@@ -8,10 +8,10 @@
             <li *ngIf="menuChoice" class="admin-menu"><a (click)="chooseMode('')">Manage Blogs</a></li>
             <li class="admin-menu"><a [routerLink]="['/admin']">Back to Admin</a></li>
         </ul>
-        
+
     </div>
 
-    <div *ngIf = "theUser" class="top-bar-right">
+    <div *ngIf="theUser" class="top-bar-right">
         <ul class="menu">
             <li class="admin-menu"><a (click)="logout()">Logout</a></li>
             <li class="admin-menu"><a>{{theUser}} Logged in</a></li>
@@ -20,6 +20,73 @@
 </div>
 
 <div [ngSwitch]="menuChoice">
-    <div *ngSwitchCase="'add'"><h1>Add Menu</h1></div>
-    <div *ngSwitchDefault><h1>Default</h1></div>
+    <div *ngSwitchCase="'add'">
+        <add-menu></add-menu>
+    </div>
+    <div *ngSwitchDefault>
+        <div *ngIf="formDisplay" class="row">
+            <div class="row" *ngFor="let post of blogPosts">
+
+                <div class="row spacer">
+                    <div class="media-object">
+                        <div class="media-object-section">
+                            <div class="align-self-middle">
+                                <img class="mini-img" [src]="post.img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="media-object-section main-section">
+                    <h4>{{post.title}}</h4>
+                    <p>{{post.content | truncate:140}}</p>
+                    <div class="button-group align-center">
+                        <a class="button" (click)="editPost(post)">Edit</a>
+                        <a class="button alert" (click)="deletePost(post)">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="!formDisplay" class="row">
+            <form>
+                <div class="row">
+                    <div class="medium-12 columns">
+                        <h3>Edit Post</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <label>Post Title
+                            <input type="text" name="editTitle" [(ngModel)]="singlePost.title" required #psTitle="ngModel">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="small-12 medium-6 columns">
+                        <label for="">Post Content
+                            <textarea rows="15" name="content" [(ngModel)]="singlePost.content" required #psContent="ngModel"></textarea>
+                        </label>
+                    </div>
+                    <div class="small-12 medium-6 columns">
+                        <img *ngIf="imageSRC" [src]="imageSRC" alt="image preview...">
+                    </div>
+                </div>
+
+                <div class="row align-center">
+                    <div class="small-12 columns">
+                        <div class="expanded button-group">
+                            <button type="button" class="success button" [disabled]="!psTitle.valid || !psContent.valid" (click)="updatePost(singlePost)">Update Post</button>
+                            <button class="cancel button" type="button" (click)="cancel()">Cancel Edit</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
 </div>

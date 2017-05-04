@@ -12,6 +12,8 @@ import { SignUpComponent } from './signUp/sign-up.component';
 import { UserService } from './adminShared/user.service';
 import { BlogAdminService } from './adminShared/blog-admin.service';
 import { BlogAdminComponent } from './blogAdmin/blog-admin.component';
+import { BlogAddComponent } from './blogAdd/blog-add.component';
+import { TruncatePipe } from './adminShared/trunc.pipe';
 
 const AdminRoutes: Routes = [
     {
@@ -35,14 +37,17 @@ const AdminRoutes: Routes = [
         RouterModule.forChild(AdminRoutes)
     ],
     exports: [
-        RouterModule
+        RouterModule,
+        TruncatePipe
     ],
     declarations: [
         AdminComponent,
         AdminMenuComponent,
         LoginComponent,
         SignUpComponent,
-        BlogAdminComponent
+        BlogAdminComponent,
+        BlogAddComponent,
+        TruncatePipe
     ],
     providers: [
         UserService,
