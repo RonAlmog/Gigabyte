@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="small-12 medium-6 columns">
+        <h1>Add a Product</h1>
+    </div>
+</div>
+
+<form>
+    <div class="row">
+        <div class="small-12 medium-6 columns">
+            <label>Name 
+                <input type="text" name="name" [(ngModel)]="name" required #prName="ngModel">
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 medium-6 columns">
+            <label>Price 
+                <input type="text" name="price" [(ngModel)]="price" required #prPrice="ngModel">
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 medium-6 columns">
+            <label>Description
+                <textarea rows="15" name="description" [(ngModel)]="description" required #prDesc="ngModel"></textarea>
+            </label>
+        </div>
+        <div class="small-12 medium-6 columns">
+            <input type="file" (change)="fileLoad($event)"><br>
+            <img *ngIf = "imageSRC" [src] = "imageSRC" alt="image preview...">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 medium-6 columns">
+            <div class="expanded button-group">
+                <button type="button" class="success button" [disabled]="!prName.valid || !prPrice.valid || !prDesc.valid" (click)="createProduct()">Create Product</button>
+                <button class="cancel button" type="button" (click)="cancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+</form>

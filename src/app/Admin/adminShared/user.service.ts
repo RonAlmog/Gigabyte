@@ -10,7 +10,12 @@ export class UserService implements CanActivate{
 
     constructor(private router: Router){
         firebase.initializeApp({
-           
+            apiKey: "AIzaSyA84KJ07zvQJSAKFX9Udd6FMUd7m0lsc4E",
+            authDomain: "gigabytes-bc759.firebaseapp.com",
+            databaseURL: "https://gigabytes-bc759.firebaseio.com",
+            projectId: "gigabytes-bc759",
+            storageBucket: "gigabytes-bc759.appspot.com",
+            messagingSenderId: "264917679253"
         })
     }
 
