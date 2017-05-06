@@ -8,6 +8,7 @@ import { ErrorComponent } from './error/error.component';
 import { AppRoutingModule } from './shared/app.routing';
 
 import { AdminModule } from './admin/admin.module';
+import { ShopComponent } from './shop/shop.component';
 
 @NgModule({
     imports: [
@@ -19,6 +20,7 @@ import { AdminModule } from './admin/admin.module';
         AppComponent,
         NavComponent,
         HomeComponent,
+        ShopComponent,
         ErrorComponent
     ],
     bootstrap: [ AppComponent ]
