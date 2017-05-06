@@ -48,7 +48,7 @@
             </div>
         </div>
 
-        <div *ngIf="!formDisplay" class="row">
+        <div *ngIf="!formDisplay" >
             <form>
                 <div class="row">
                     <div class="medium-12 columns">
@@ -66,12 +66,12 @@
 
                 <div class="row">
                     <div class="small-12 medium-6 columns">
-                        <label for="">Post Content
+                        <label>Post Content
                             <textarea rows="15" name="content" [(ngModel)]="singlePost.content" required #psContent="ngModel"></textarea>
                         </label>
                     </div>
                     <div class="small-12 medium-6 columns">
-                        <img *ngIf="imageSRC" [src]="imageSRC" alt="image preview...">
+                        <img [src]="singlePost.img" alt="image preview...">
                     </div>
                 </div>
 
@@ -79,7 +79,7 @@
                     <div class="small-12 columns">
                         <div class="expanded button-group">
                             <button type="button" class="success button" [disabled]="!psTitle.valid || !psContent.valid" (click)="updatePost(singlePost)">Update Post</button>
-                            <button class="cancel button" type="button" (click)="cancel()">Cancel Edit</button>
+                            <button class="cancel button" type="button" (click)="cancelEdit()">Cancel Edit</button>
                         </div>
                     </div>
                 </div>
