@@ -15,7 +15,7 @@ export class ProductAdminService{
 
                 newProd.set({
                     name: prod.name,
-                    desc: prod.description,
+                    description: prod.description,
                     imgTitle: prod.imgTitle,
                     img: url,
                     price: prod.price,

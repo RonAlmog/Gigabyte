@@ -39,7 +39,7 @@
 
                 <div class="media-object-section main-section">
                     <h4>{{prod.name}}</h4>
-                    <p>{{prod.desc | truncate:140}}</p>
+                    <p>{{prod.description | truncate:140}}</p>
                     <p>$ {{prod.price}}</p>
                     <div class="button-group align-center">
                         <a class="button" (click)="editProduct(prod)">Edit</a>
@@ -60,7 +60,7 @@
                 <div class="row">
                     <div class="small-12 medium-6 columns">
                         <label>Product Name
-                            <input type="text" name="editName" [(ngModel)]="singleProduct.name" required #prTitle="ngModel">
+                            <input type="text" name="editName" [(ngModel)]="singleProduct.name" required #prName="ngModel">
                         </label>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                 <div class="row">
                     <div class="small-12 medium-6 columns">
                         <label>Description
-                            <textarea rows="15" name="editDesc" [(ngModel)]="singleProduct.desc" required #prDesc="ngModel"></textarea>
+                            <textarea rows="15" name="editDesc" [(ngModel)]="singleProduct.description" required #prDesc="ngModel"></textarea>
                         </label>
                     </div>
                     <div class="small-12 medium-6 columns">
