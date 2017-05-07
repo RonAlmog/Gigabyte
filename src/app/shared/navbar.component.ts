@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
                     <div class="top-bar-title nav-menu">GigaByte Gaming Company</div>
                     <div>
                         <ul class="menu">
+                            <li class="nav-menu"><a [routerLink]="['/cart']">Cart</a></li>
                             <li class="nav-menu"><a [routerLink]="['/shop']">Shop</a></li>
                             <li class="nav-menu"><a [routerLink]="['/admin']">AdminArea</a></li>
                         </ul>

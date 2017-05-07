@@ -9,6 +9,8 @@ import { AppRoutingModule } from './shared/app.routing';
 
 import { AdminModule } from './admin/admin.module';
 import { ShopComponent } from './shop/shop.component';
+import { ShoppingCartService } from './shared/shopping-cart.service';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
     imports: [
@@ -21,7 +23,11 @@ import { ShopComponent } from './shop/shop.component';
         NavComponent,
         HomeComponent,
         ShopComponent,
-        ErrorComponent
+        ErrorComponent,
+        CartComponent
+    ],
+    providers: [
+        ShoppingCartService
     ],
     bootstrap: [ AppComponent ]
 })
